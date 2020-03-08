@@ -9,15 +9,31 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-    <section class="section">
-        <div class="container">
-          <h1 class="title">
-            Hello ${title}
-          </h1>
-          <p class="subtitle">
-            ${partial}
-          </p>
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item title" href="/">
+            Nell's CatBlog
+          </a>
         </div>
-      </section>
+
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/users/login">
+                    <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-link" href="/users/signup">
+                    Log in
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+      </nav>
+
+    <section class="section">
+        ${partial}
+    </section>
 </body>
 </html>
