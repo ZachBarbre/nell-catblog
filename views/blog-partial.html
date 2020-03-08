@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">${blogData.title}</p>
+                    <p class="subtitle is-6"><strong>${blogData.username}</strong> - ${blogData.email}</p>
+                    </div>
+                </div>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                ${blogData.blog}
+            </div>
+        </div>
+        <div class="card-footer">
+            <h3 class="card-footer-item">Comments</h3>
+        </div>
+    </div>
+</div> 
+<div class="section">
+    <div class="container">
+${commentData.map(comment => `
+    <div class="box">
+        <article class="media">
+        <div class="media-left">
+            <figure class="image is-32x32">
+            <img src="https://bulma.io/images/placeholders/32x32.png" alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+            <p>
+                <strong>${comment.username}</strong> <small>${comment.email}</small> 
+                <br>
+                ${comment.comment}
+            </p>
+            </div>
+        </div>
+        </article>
+    </div>
+    `).join()}
+    </div>    
+</div>

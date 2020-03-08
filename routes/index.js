@@ -5,7 +5,6 @@ const blogModel = require('../models/blogModel');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   const blogData = await blogModel.getBlogEntries();
-  console.log(blogData);
 
   res.render('template', { 
     locals:{

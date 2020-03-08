@@ -1,0 +1,27 @@
+<div class="container">
+    <h3 class="title is-4">Signup</h3>
+    <form action="/users/signup" method="POST">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+                <input class="input" name="username" type="text" placeholder="Your Cat Name">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+            <input class="input" name="email" type="email" placeholder="ie - cat@mycat.com">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input class="input" name="password" type="password">
+            </div>
+        </div>
+        <input type="hidden" name="is_admin" value="false">
+        <div class="control">
+            <button class="button is-primary">Submit</button>
+        </div>
+    </form>
+</div>
