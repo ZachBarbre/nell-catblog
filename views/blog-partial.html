@@ -44,6 +44,29 @@ ${commentData.map(comment => `
         </div>
         </article>
     </div>
-    `).join()}
+    `).join('')}
     </div>    
 </div>
+${ userData.is_logged_in === true ? `
+<section class="section">
+    <div class="container box">
+        <form action="/blog/comment" method="POST">
+            <div class="field">
+                <label class="label">Add Comment as ${userData.username}</label>
+                <div class="control">
+                    <textarea class="textarea" name="comment" placeholder="Add Comment"></textarea>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="${userData.user_id}">
+            <input type="hidden" name="blog_id" value="${blogData.id}">
+            <div class="control">
+                <button class="button is-primary is-small">Submit Comment</button>
+            </div>
+        </form>
+    </div>
+</section> ` : `
+<section class="section">
+    <div class="container">
+        <h3 class="subtitle">Please <a href="/users/login">login</a> to comment</h3>
+    </div>
+</section> `}

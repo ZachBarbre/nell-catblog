@@ -9,7 +9,8 @@ router.get('/', async function(req, res, next) {
   res.render('template', { 
     locals:{
       title: 'Cat Blog',
-      blogData: blogData
+      blogData: blogData,
+      userData: req.session
     },
       partials:{
         partial: 'index-partial'

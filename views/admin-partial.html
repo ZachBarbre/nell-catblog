@@ -1,0 +1,29 @@
+${ userData.is_admin === true ? `
+    <section class="section">
+        <div class="container box">
+            <h3 class="title is-3"> Add new Blog as ${userData.username}</h3>
+            <form action="/admin" method="POST">
+                <div class="field">
+                    <label class="label">Blog Title</label>
+                    <div class="control">
+                        <input class="input" name="title" type="text" placeholder="New Title">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Blog Content</label>
+                    <div class="control">
+                        <textarea class="textarea" name="blog" placeholder="New Post"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="user_id" value="${userData.user_id}">
+                <div class="control">
+                    <button class="button is-primary is-small">Post Blog</button>
+                </div>
+            </form>
+        </div>
+    </section> ` : `
+    <section class="section">
+        <div class="container">
+            <h3 class="subtitle">Please <a href="/users/login">login</a> as <strong>admin</strong> to post</h3>
+        </div>
+    </section> `}

@@ -9,6 +9,7 @@ logger = require('morgan');
 const indexRouter = require('./routes/index'),
  usersRouter = require('./routes/users');
  blogRouter = require('./routes/blog');
+ adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -25,12 +26,13 @@ app.use(session({
     store: new FileStore(),
     secret: 'meow',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     is_logged_in: false
 }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blog', blogRouter);
+app.use('/admin', adminRouter);
 
 module.exports = app;

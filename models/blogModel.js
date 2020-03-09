@@ -32,17 +32,30 @@ class BlogEntires {
         }
     }
 
-    static async getBlogComments(blog_id){
+    static async getBlogComments(blogId){
         try {
             const response = await db.any(`SELECT users.id, comment, username, email 
                                             FROM comments INNER JOIN users 
-                                            ON comments.user_id = users.id WHERE comments.blog_id = ${blog_id};`);
+                                            ON comments.user_id = users.id WHERE comments.blog_id = ${blogId}
+                                            ORDER BY comments.id;`);
             return response;
         } catch (err) {
             console.log(err);
             return err;
         }
     }
+
+     async addBlogPost(){
+         try {
+             const response = await db.one(`INSERT INTO blog_entries (user_id, title, blog)  
+             VALUES ($1, $2, $3) RETURNING id;`,
+             [this.user_id, this.title, this.blog])
+             return response;
+         } catch (error) {
+            console.log(err);
+            return err;
+         }
+     }
     
 }
 
