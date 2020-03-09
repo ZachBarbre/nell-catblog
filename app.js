@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express'),
 session = require('express-session'),
 FileStore = require('session-file-store')(session),
@@ -24,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     store: new FileStore(),
-    secret: 'meow',
+    secret: process.env['SESSION_SECRET'],
     resave: false,
     saveUninitialized: false,
     is_logged_in: false
